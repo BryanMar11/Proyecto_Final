@@ -162,10 +162,40 @@ document.addEventListener("DOMContentLoaded", () => {
     inicializarEventos();
 });
 
-function eliminarPersonaje(index) {
-    // Confirmación estética para no borrar por error
-    if (confirm("¿Estás seguro de que quieres eliminar a este personaje del registro?")) {
-        listaPersonajes.splice(index, 1); // Elimina 1 elemento en la posición del índice
-        renderizarPersonajes(); // Refresca la lista visualmente
+// Variable global para guardar el índice
+let indexAEliminar = null;
+
+// Esta función se encarga de configurar el modal una sola vez al cargar la página
+function configurarModal() {
+    const modal = document.getElementById("modal-eliminar");
+    const btnCancelar = document.getElementById("btn-cancelar");
+    const btnConfirmar = document.getElementById("btn-confirmar");
+
+    if (btnCancelar) {
+        btnCancelar.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
     }
+
+    if (btnConfirmar) {
+        btnConfirmar.addEventListener("click", () => {
+            if (indexAEliminar !== null) {
+                listaPersonajes.splice(indexAEliminar, 1);
+                renderizarPersonajes();
+                modal.style.display = "none";
+            }
+        });
+    }
+}
+
+// Asegúrate de que esta función se llame al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+    renderizarPersonajes();
+    configurarModal(); // <--- IMPORTANTE: Llamar a esto aquí
+});
+
+// Tu función original de eliminar que ahora solo abre el modal
+function eliminarPersonaje(index) {
+    indexAEliminar = index;
+    document.getElementById("modal-eliminar").style.display = "flex";
 }
