@@ -70,8 +70,9 @@ function renderizarPersonajes() {
 
     contenedor.innerHTML = "";
 
-    listaPersonajes.forEach((personaje, index) => { // Agregamos 'index' aquí
+    listaPersonajes.forEach((personaje, index) => {
         const card = document.createElement("div");
+        // Clase dinámica para el estilo (Héroe o Villano)
         card.className = personaje.esVillano ? "card villano" : "card";
 
         card.innerHTML = `
@@ -80,10 +81,12 @@ function renderizarPersonajes() {
             </div>
             <div class="card-body">
                 <h3 class="card-title">${personaje.nombrePersonaje}</h3>
+                <p class="card-bando"><strong>Bando:</strong> ${personaje.esVillano ? "Villano" : "Héroe"}</p>
                 <p><strong>Edad:</strong> ${personaje.edad} años</p>
+                <p><strong>Altura:</strong> ${personaje.altura} m</p>
+                <p><strong>Habilidades:</strong> ${personaje.habilidades.join(", ")}</p>
                 <p class="card-desc">${personaje.descripción}</p>
                 
-                <!-- BOTÓN DE ELIMINAR -->
                 <button onclick="eliminarPersonaje(${index})" class="btn-delete">
                     Eliminar de la Base
                 </button>
@@ -92,6 +95,7 @@ function renderizarPersonajes() {
         contenedor.appendChild(card);
     });
 }
+
 // ==========================================
 // 3. FUNCIONES DE INTERACCIÓN (BOTONES DE FILTRO)
 // ==========================================
