@@ -3,63 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noticias - Spider-Verse</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <title>Spider-Verse - Últimas Noticias</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="characters-page">
 
-    <!-- Barra de navegación constante -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">🕸️ Spider-Verse</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="contenido.html">Personajes</a></li>
-                <li><a href="noticias.html" class="active">Noticias</a></li>
-            </ul>
-        </nav>
+    <nav class="navbar">
+        <div class="nav-brand">🕸️ Spider-<span>Verse</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="contenido.html">Personajes</a></li>
+            <li><a href="noticias.html" class="active">Noticias</a></li>
+        </ul>
+    </nav>
+
+    <header class="main-header">
+        <h1>Diario del Clarín Multiversal</h1>
+        <p class="construction-text" style="color: var(--rojo-spider); font-weight: 600; letter-spacing: 1px;">
+            📢 REPORTE DE ANOMALÍAS EN TIEMPO REAL
+        </p>
     </header>
 
-    <main class="noticias-container">
-        <!-- SECCIÓN SINOPSIS -->
-        <section class="sinopsis-section">
-            <h1>Sinopsis del Spider-Verse</h1>
-            <div class="sinopsis-card">
-                <p>
-                    El universo de Spider-Man colisiona cuando múltiples realidades se cruzan, revelando que Peter Parker 
-                    no es el único portador de la máscara arácnida. Desde Brooklyn con Miles Morales, hasta realidades 
-                    alternas con Gwen Stacy o Miguel O'Hara, el Spider-Verse expande los límites del heroísmo. 
-                    Cualquiera puede llevar la máscara, pero lo que realmente define a un Spider-Man es el sacrificio, 
-                    la responsabilidad y la voluntad de levantarse una vez más.
-                </p>
-            </div>
-        </section>
-
-        <!-- SECCIÓN NOTICIAS -->
-        <section class="news-section">
-            <h2>Noticias Generales</h2>
-            
-            <div class="news-grid">
-                <!-- Noticia 1 -->
-                <article class="news-item">
-                    <h3>¡Alerta en la ciudad! El Duende Verde ataca Oscorp</h3>
-                    <p class="news-date">24 de Mayo, 2026</p>
-                    <p>Fuertes explosiones se registraron esta tarde en las instalaciones de Oscorp. Testigos afirman haber visto una silueta en un planeador. Spider-Man ya se encuentra en el lugar controlando la situación.</p>
-                </article>
-
-                <!-- Noticia 2 -->
-                <article class="news-item">
-                    <h3>¿Nuevo héroe en Brooklyn?</h3>
-                    <p class="news-date">18 de Mayo, 2026</p>
-                    <p>Vecinos del sector reportan avistamientos de un misterioso Spider-Man vistiendo un traje negro y rojo. Todo apunta a que el multiverso sigue trayendo sorpresas a nuestra realidad.</p>
-                </article>
-            </div>
-        </section>
+    <main style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
+        <div id="contenedor-noticias" class="cards-grid"></div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Spider-Verse App - Proyecto Final</p>
-    </footer>
-
+    <script src="js/noticias.js"></script>
 </body>
 </html>
