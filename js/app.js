@@ -70,26 +70,26 @@ function renderizarPersonajes() {
 
     contenedor.innerHTML = "";
 
-    // Dentro de tu renderizado...
-<p class="card-info">
-    <strong>Bando:</strong> 
-    <span class="badge ${personaje.esVillano ? 'bando-villano' : 'bando-heroe'}">
-        ${personaje.esVillano ? "Villano" : "Héroe"}
-    </span>
-</p>
-
     listaPersonajes.forEach((personaje, index) => {
         const card = document.createElement("div");
-        // Clase dinámica para el estilo (Héroe o Villano)
         card.className = personaje.esVillano ? "card villano" : "card";
 
+        // Todo el HTML debe ir aquí dentro, entre los backticks (`)
         card.innerHTML = `
             <div class="card-img-container">
                 <img src="${personaje.url_imagen}" alt="${personaje.nombrePersonaje}" class="card-img">
             </div>
             <div class="card-body">
                 <h3 class="card-title">${personaje.nombrePersonaje}</h3>
-                <p class="card-bando"><strong>Bando:</strong> ${personaje.esVillano ? "Villano" : "Héroe"}</p>
+                
+                <!-- AQUÍ VA EL BANDO COOL CON TU ETIQUETA -->
+                <p class="card-info">
+                    <strong>Bando:</strong> 
+                    <span class="badge ${personaje.esVillano ? 'bando-villano' : 'bando-heroe'}">
+                        ${personaje.esVillano ? "Villano" : "Héroe"}
+                    </span>
+                </p>
+
                 <p><strong>Edad:</strong> ${personaje.edad} años</p>
                 <p><strong>Altura:</strong> ${personaje.altura} m</p>
                 <p><strong>Habilidades:</strong> ${personaje.habilidades.join(", ")}</p>
@@ -103,7 +103,6 @@ function renderizarPersonajes() {
         contenedor.appendChild(card);
     });
 }
-
 // ==========================================
 // 3. FUNCIONES DE INTERACCIÓN (BOTONES DE FILTRO)
 // ==========================================
