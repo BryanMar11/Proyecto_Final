@@ -64,50 +64,34 @@ const listaPersonajes = [
     }
 ];
 
-// ==========================================
-// 2. FUNCIÓN PRINCIPAL DE RENDERIZADO
-// ==========================================
 function renderizarPersonajes() {
     const contenedor = document.getElementById("contenedor-tarjetas");
     if (!contenedor) return;
 
-    // Limpia el contenedor para evitar duplicados al ordenar
     contenedor.innerHTML = "";
 
-    listaPersonajes.forEach(personaje => {
+    listaPersonajes.forEach((personaje, index) => { // Agregamos 'index' aquí
         const card = document.createElement("div");
-        card.classList.add("card");
-        
-        if (personaje.esVillano) {
-            card.classList.add("villano");
-        }
-
-        const habilidadesBadges = personaje.habilidades
-            .map(hab => `<span class="tag-badge ${personaje.esVillano ? 'badge-villano' : 'badge-heroe'}">${hab}</span>`)
-            .join(" ");
+        card.className = personaje.esVillano ? "card villano" : "card";
 
         card.innerHTML = `
             <div class="card-img-container">
                 <img src="${personaje.url_imagen}" alt="${personaje.nombrePersonaje}" class="card-img">
             </div>
             <div class="card-body">
-                <span class="tag-badge ${personaje.esVillano ? 'badge-villano' : 'badge-heroe'}">
-                    ${personaje.esVillano ? 'Villano' : 'Héroe'}
-                </span>
                 <h3 class="card-title">${personaje.nombrePersonaje}</h3>
-                <p class="card-desc">${personaje.descripción}</p>
                 <p><strong>Edad:</strong> ${personaje.edad} años</p>
-                <p><strong>Altura:</strong> ${personaje.altura}m</p>
-                <div class="habilidades-container" style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px;">
-                    ${habilidadesBadges}
-                </div>
+                <p class="card-desc">${personaje.descripción}</p>
+                
+                <!-- BOTÓN DE ELIMINAR -->
+                <button onclick="eliminarPersonaje(${index})" class="btn-delete">
+                    Eliminar de la Base
+                </button>
             </div>
         `;
-
         contenedor.appendChild(card);
     });
 }
-
 // ==========================================
 // 3. FUNCIONES DE INTERACCIÓN (BOTONES DE FILTRO)
 // ==========================================
@@ -128,6 +112,48 @@ function inicializarEventos() {
             renderizarPersonajes();
         });
     }
+
+// --- ESCUCHA DEL FORMULARIO DE NUEVOS PERSONAJES ---
+    const formulario = document.getElementById("formulario-personaje");
+    if (formulario) {
+        formulario.addEventListener("submit", (evento) => {
+            evento.preventDefault(); // Evita que la página se recargue
+
+            // 1. Capturar los valores del formulario
+            const nombre = document.getElementById("nombre").value;
+            const bando = document.getElementById("bando").value;
+            const descripcion = document.getElementById("descripcion").value;
+            const edad = parseInt(document.getElementById("edad").value);
+            const altura = parseFloat(document.getElementById("altura").value);
+            
+            // Convertir la cadena de texto de habilidades en un Arreglo limpio sin espacios vacíos
+            const habilidades = document.getElementById("habilidades").value
+                .split(",")
+                .map(hab => hab.trim())
+                .filter(hab => hab !== "");
+
+            const url_imagen = document.getElementById("url_imagen").value;
+
+            // 2. Crear el nuevo objeto de personaje estructurado
+            const nuevoPersonaje = {
+                id: listaPersonajes.length + 1, // Genera un ID dinámico básico
+                nombrePersonaje: nombre,
+                descripción: descripcion,
+                habilidades: habilidades,
+                url_imagen: url_imagen,
+                edad: edad,
+                altura: altura,
+                esVillano: (bando === "villano") // Si es villano devuelve true, sino false
+            };
+
+            // 3. Empujar al arreglo principal y volver a renderizar
+            listaPersonajes.push(nuevoPersonaje);
+            renderizarPersonajes();
+
+            // 4. Limpiar el formulario para dejarlo listo para otro registro
+            formulario.reset();
+        });
+    }
 }
 
 // Carga la app una vez que la estructura HTML esté lista
@@ -135,3 +161,11 @@ document.addEventListener("DOMContentLoaded", () => {
     renderizarPersonajes();
     inicializarEventos();
 });
+
+function eliminarPersonaje(index) {
+    // Confirmación estética para no borrar por error
+    if (confirm("¿Estás seguro de que quieres eliminar a este personaje del registro?")) {
+        listaPersonajes.splice(index, 1); // Elimina 1 elemento en la posición del índice
+        renderizarPersonajes(); // Refresca la lista visualmente
+    }
+}

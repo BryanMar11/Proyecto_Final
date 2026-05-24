@@ -31,7 +31,49 @@
     <main style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
         <section>
             <h2 class="section-title" style="text-align: left;">Agregar Nuevo Personaje</h2>
-            <p class="construction-text" style="text-align: left;">Formulario en construcción...</p>
+<form id="formulario-personaje" class="main-form">
+    <div class="form-group-row">
+        <div class="form-group">
+            <label for="nombre">Nombre del Personaje</label>
+            <input type="text" id="nombre" placeholder="Ej: Otto Octavius" required>
+        </div>
+        <div class="form-group">
+            <label for="bando">Alineación (Bando)</label>
+            <select id="bando" required>
+                <option value="heroe">Héroe</option>
+                <option value="villano">Villano</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="descripcion">Descripción / Biografía</label>
+        <textarea id="descripcion" rows="3" placeholder="Cuéntanos su historia..." required></textarea>
+    </div>
+
+    <div class="form-group-row">
+        <div class="form-group">
+            <label for="edad">Edad (años)</label>
+            <input type="number" id="edad" min="1" placeholder="Ej: 28" required>
+        </div>
+        <div class="form-group">
+            <label for="altura">Altura (metros)</label>
+            <input type="number" id="altura" step="0.01" min="0.1" placeholder="Ej: 1.75" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="habilidades">Habilidades (Separadas por comas)</label>
+        <input type="text" id="habilidades" placeholder="Ej: Sentido arácnido, Super fuerza" required>
+    </div>
+
+    <div class="form-group">
+        <label for="url_imagen">URL de la Imagen</label>
+        <input type="url" id="url_imagen" placeholder="https://ejemplo.com/foto.jpg" required>
+    </div>
+
+    <button type="submit" class="btn-submit">Registrar en el Multiverso</button>
+</form>
         </section>
 
         <!-- SECCIÓN: LISTA DE TARJETAS DINÁMICAS -->
