@@ -549,4 +549,31 @@ body.characters-page {
     font-weight: bold;
 }
 
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+}
+
+.bando-heroe {
+    background: linear-gradient(90deg, #ff416c, #ff4b2b); /* Rojo Spider */
+    box-shadow: 0 0 10px rgba(255, 65, 108, 0.4);
+}
+
+.bando-villano {
+    background: linear-gradient(90deg, #6a11cb, #2575fc); /* Morado/Azul eléctrico */
+    box-shadow: 0 0 10px rgba(106, 17, 203, 0.4);
+}
+
+.card-info {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
