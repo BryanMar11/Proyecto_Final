@@ -3,40 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spider-Verse Database</title>
-    <!-- Conexión con archivo estilos CSS -->
+    <title>Spider-Verse - Bienvenidos</title>
+    <!-- Enlace al archivo CSS unificado -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="welcome-page">
 
-    <!-- Barra de navegación -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">🕸️ Spider-Verse</div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="contenido.html">Personajes</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- CONTENEDOR CENTRAL DE BIENVENIDA -->
+    <div class="welcome-container">
+        <div class="welcome-card">
+            <!-- Icono Arácnido Estilizado -->
+            <div class="spider-logo-icon">🕸️</div>
+            
+            <!-- Título Principal con Degradado -->
+            <h1 class="welcome-title">Base de Datos del <span>Spider-Verse</span></h1>
+            
+            <!-- Descripción de la plataforma -->
+            <p class="welcome-text">
+                Explora, gestiona y analiza en tiempo real los perfiles de los diferentes héroes y villanos del multiverso arácnido. Controla las anomalías temporales y organiza los datos de cada dimensión.
+            </p>
 
-    <!-- Contenido Principal de Bienvenida -->
-    <main class="welcome-container">
-        <section class="hero">
-            <h1>Bienvenido a la Base de Datos del Spider-Verse</h1>
-            <p>Explora, gestiona y analiza los perfiles de los diferentes héroes y villanos del multiverso arácnido.</p>
-            <div class="hero-buttons">
-                <a href="contenido.html" class="btn-primary">Ver Personajes</a>
-                <a href="noticias.html" class="btn-secondary">Últimas Noticias</a>
+            <!-- Botones de Acción Interactivos -->
+            <div class="welcome-actions">
+                <a href="contenido.html" class="btn-primary">Entrar al Multiverso</a>
+                <a href="#" class="btn-secondary">Últimas Noticias</a>
             </div>
-        </section>
-    </main>
 
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2026 Spider-Verse App - Proyecto Final</p>
-    </footer>
+            <!-- Footer con derechos de autor -->
+            <footer class="welcome-footer">
+                &copy; 2026 Spider-Verse App &bull; Proyecto Final
+            </footer>
+        </div>
+    </div>
 
 </body>
 </html>
