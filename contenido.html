@@ -3,47 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personajes - Spider-Verse</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <title>Spider-Verse - Gestión de Personajes</title>
+    <!-- Si tu archivo está dentro de la carpeta css, usa esta ruta. Si está suelto, quita el "css/" -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">🕸️ Spider-Verse</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="contenido.html" class="active">Personajes</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
-            </ul>
-        </nav>
+    <!-- 1. BARRA DE NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="nav-brand">🕸️ Spider-Verse</div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Inicio</a></li>
+            <li><a href="#">Personajes</a></li>
+            <li><a href="#">Noticias</a></li>
+        </ul>
+    </nav>
+
+    <!-- 2. CABECERA PRINCIPAL Y BOTONES DE FILTRO -->
+    <header class="main-header">
+        <h1>Gestión de Personajes del Multiverso</h1>
+        <div class="botones-orden">
+            <button id="btn-ordenar-nombre">Ordenar por Nombre</button>
+            <button id="btn-ordenar-edad">Ordenar por Edad</button>
+        </div>
     </header>
 
-    <main class="crud-container">
-        <h1>Gestión de Personajes del Multiverso</h1>
+    <!-- 3. SECCIÓN DEL FORMULARIO -->
+    <section class="form-section">
+        <h2 class="section-title title-form">AGREGAR NUEVO PERSONAJE</h2>
+        <p class="construction-text">Formulario en construcción...</p>
+    </section>
 
-        <section class="filters-section">
-            <button id="btn-ordenar-nombre" class="btn-filter">Ordenar por Nombre</button>
-            <button id="btn-ordenar-edad" class="btn-filter">Ordenar por Edad</button>
-        </section>
-
-        <section class="form-section">
-            <h2 id="form-title">Agregar Nuevo Personaje</h2>
-            <form id="personaje-form">
-                <p style="color: gray; font-style: italic;">Formulario en construcción...</p>
-            </form>
-        </section>
-
-        <section class="cards-section">
-            <h2>Lista de Personajes</h2>
-            <div id="contenedor-tarjetas" class="cards-grid"></div>
-        </section>
+    <!-- 4. SECCIÓN PRINCIPAL DE TARJETAS -->
+    <main class="characters-section">
+        <h2 class="section-title title-list">LISTA DE PERSONAJES</h2>
+        
+        <!-- Contenedor donde se inyectará todo desde el JS -->
+        <div id="contenedor-tarjetas" class="cards-grid"></div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Spider-Verse App - Proyecto Final</p>
-    </footer>
-
+    <!-- Enlace a tu script de JS -->
     <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,277 @@
+/* ==========================================
+   1. VARIABLES DE DISEÑO (LOOK PREMIUM)
+   ========================================== */
+:root {
+    --bg-principal: #08070c;
+    --bg-tarjeta-heroe: rgba(20, 24, 40, 0.75);
+    --bg-tarjeta-villano: rgba(30, 15, 20, 0.75);
+    --borde-heroe: rgba(0, 123, 255, 0.25);
+    --borde-heroe-hover: #007bff;
+    --borde-villano: rgba(220, 53, 69, 0.25);
+    --borde-villano-hover: #ff3344;
+    --texto-primario: #ffffff;
+    --texto-secundario: #a0a5b5;
+    --rojo-spider: #e50914;
+}
+
+/* ==========================================
+   2. RESETEO Y FONDO GLOBAL CON GRADIENTE
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #08070c 0%, #110d1d 100%);
+    color: var(--texto-primario);
+    min-height: 100vh;
+    padding-bottom: 60px;
+    background-attachment: fixed;
+}
+
+/* ==========================================
+   3. BARRA DE NAVEGACIÓN MODERNA (GLASSMORPHISM)
+   ========================================== */
+.navbar {
+    background: rgba(17, 17, 26, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand {
+    font-size: 1.35rem;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.nav-brand span {
+    color: var(--rojo-spider);
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--texto-secundario);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    color: var(--rojo-spider);
+    text-shadow: 0 0 8px rgba(229, 9, 20, 0.5);
+}
+
+/* ==========================================
+   4. CABECERA Y BOTONES DE FILTRO
+   ========================================== */
+.main-header {
+    text-align: center;
+    padding: 50px 20px 25px 20px;
+}
+
+.main-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 25px;
+    background: linear-gradient(180deg, #ffffff 0%, #a5a5a5 100%);
+    -webkit-background-clip: text;
+    background-clip: text; /* Corregido para evitar advertencias de compatibilidad */
+    -webkit-text-fill-color: transparent;
+}
+
+.botones-orden {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.botones-orden button {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--texto-primario);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 22px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.3px;
+}
+
+.botones-orden button:hover {
+    background: var(--texto-primario);
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.12);
+}
+
+/* ==========================================
+   5. SECCIONES Y TEXTOS INTERMEDIOS
+   ========================================== */
+.section-title {
+    font-size: 1.5rem;
+    color: var(--rojo-spider);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 45px 0 15px 0;
+}
+
+.construction-text {
+    font-style: italic;
+    color: #4f4f66;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+/* ==========================================
+   6. GRID DE TARJETAS ADAPTABLE
+   ========================================== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 35px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   7. TARJETAS (ESTILO PREMIUM EN DETALLE)
+   ========================================== */
+.card {
+    background: var(--bg-tarjeta-heroe) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--borde-heroe);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 590px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    text-align: left;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--borde-heroe-hover);
+    box-shadow: 0 15px 35px rgba(0, 123, 255, 0.25);
+}
+
+/* Contenedor para controlar el efecto Zoom de la imagen */
+.card-img-container {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-img {
+    transform: scale(1.04);
+}
+
+/* Cuerpo interno de la tarjeta */
+.card .card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: transparent;
+    color: var(--texto-primario);
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: -0.3px;
+    margin-top: 2px;
+}
+
+.card-desc {
+    font-size: 0.88rem;
+    color: var(--texto-secundario);
+    line-height: 1.5;
+    margin-bottom: 6px;
+}
+
+.card .card-body p {
+    font-size: 0.92rem;
+    color: var(--texto-secundario);
+}
+
+.card .card-body p strong {
+    color: var(--texto-primario);
+    font-weight: 600;
+}
+
+/* ==========================================
+   8. COMPLEMENTOS Y HOVERS PARA VILLANOS
+   ========================================== */
+.card.villano {
+    background: var(--bg-tarjeta-villano) !important;
+    border-color: var(--borde-villano);
+}
+
+.card.villano:hover {
+    border-color: var(--borde-villano-hover);
+    box-shadow: 0 15px 35px rgba(220, 53, 69, 0.25);
+}
+
+/* ==========================================
+   9. BADGES / ETIQUETAS DE TEXTO REDONDEADAS
+   ========================================== */
+.tag-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 20px;
+    width: fit-content;
+    letter-spacing: 0.8px;
+}
+
+.badge-heroe {
+    background: rgba(0, 123, 255, 0.15);
+    color: #3399ff;
+    border: 1px solid rgba(0, 123, 255, 0.25);
+}
+
+.badge-villano {
+    background: rgba(220, 53, 69, 0.15);
+    color: #ff4d5a;
+    border: 1px solid rgba(220, 53, 69, 0.25);
+}
