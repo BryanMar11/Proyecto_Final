@@ -23,3 +23,42 @@ const listaPersonajes = [
 
 console.log("Spider-Verse DB conectada exitosamente", listaPersonajes);
 
+function renderizarPersonajes() {
+    const contenedor = document.getElementById("contenedor-tarjetas");
+    if (!contenedor) return;
+
+    contenedor.innerHTML = "";
+
+    listaPersonajes.forEach(personaje => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        
+        if (personaje.esVillano) {
+            card.classList.add("villano");
+        }
+
+        const habilidadesBadges = personaje.habilidades
+            .map(hab => `<span class="tag-badge ${personaje.esVillano ? 'badge-villano' : 'badge-heroe'}">${hab}</span>`)
+            .join(" ");
+
+        card.innerHTML = `
+            <img src="${personaje.url_imagen}" alt="${personaje.nombrePersonaje}" class="card-img">
+            <div class="card-body">
+                <span class="tag-badge ${personaje.esVillano ? 'badge-villano' : 'badge-heroe'}">
+                    ${personaje.esVillano ? 'Villano' : 'Héroe'}
+                </span>
+                <h3 class="card-title">${personaje.nombrePersonaje}</h3>
+                <p class="card-desc">${personaje.descripción}</p>
+                <p><strong>Edad:</strong> ${personaje.edad} años</p>
+                <p><strong>Altura:</strong> ${personaje.altura}m</p>
+                <div class="habilidades-container" style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 5px;">
+                    ${habilidadesBadges}
+                </div>
+            </div>
+        `;
+
+        contenedor.appendChild(card);
+    });
+}
+
+renderizarPersonajes();
